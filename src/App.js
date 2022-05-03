@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home/Home/Home';
+import Blog from './Pages/Blog/Blog';
+import NotFound from './Pages/NotFound/NotFound';
+import Login from './Pages/Login/Login/Login';
+import Reg from './Pages/Login/Reg/Reg';
+import ManageItem from './Pages/ManageItem/ManageItem';
+import AddItem from './Pages/AddItem/AddItem';
+import Inventory from './Pages/Inventory/Inventory';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import AuthProvider from './Context/AuthProvider';
+import MyItems from './Pages/MyItems/MyItems';
+import ManageInventorys from './Pages/Home/ManageInventorys/ManageInventorys.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AuthProvider>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='home' element={<Home />} />
+        <Route path='blog' element={<Blog />} />
+        <Route path='login' element={<Login />} />
+        <Route path='reg' element={<Reg />} />
+        <Route path='manage-item' element={<ManageItem />} />
+        <Route path='add-item' element={<AddItem />} />
+        <Route path='my-item' element={<MyItems />} />
+        <Route path='manage-inventories' element={<ManageInventorys />} />
+        <Route path='/inventory/:inventoryId' element={<PrivateRoute>
+          <Inventory />
+        </PrivateRoute>} />
+          <Route path='*' element={<NotFound />} />
+      </Routes>
+      </AuthProvider>
     </div>
   );
 }

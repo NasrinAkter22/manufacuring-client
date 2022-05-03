@@ -1,0 +1,43 @@
+.nav-container{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.width-control{
+    width: 95%;
+    margin: 0 auto;
+}
+.nav-container a{
+    color: white;
+}
+.nav-top-ancor{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+}
+.navbar-link{
+    text-decoration: none;
+    margin-left: 22px;
+    color: white;
+    font-weight: 600;
+}
+.nav-login-btn{
+    margin-left: 22px;
+    border: 0;
+    font-weight: 600;
+    color: white;
+    background-color: #3749BB;
+    padding: 4px 12px;
+}
+.navbar-nav{
+    text-decoration: none;
+    margin-left: 22px;
+    font-weight: 600;
+}
+.nav-color{
+    background-color: #1F1F1F;
+    color: white;
+}
+.display-name{
+  color: rgba(152, 151, 156, 0.986);
+}
