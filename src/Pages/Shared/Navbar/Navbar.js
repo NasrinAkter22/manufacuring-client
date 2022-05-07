@@ -3,11 +3,13 @@ import { Link, NavLink } from 'react-router-dom';
 import useFirebase from '../../../Hooks/useFirebase';
 import './Navbar.css'
 
+
 const Navbar = () => {
     const { user, logOut } = useFirebase();
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light nav-color">
+
                 <div className="nav-container container-fluid width-control">
                     <NavLink className='nav-top-ancor' to="/"><span>Hello world</span></NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

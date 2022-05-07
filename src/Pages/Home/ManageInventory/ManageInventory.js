@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ManageInventory = ({ manageInvento }) => {
-    const { _id,name, price, quantity, supplierName, description, imgURL } = manageInvento;
+    const { _id, name, price, quantity, supplierName, description, imgURL } = manageInvento;
     return (
         <div class="col-sm-12 col-md-6 col-lg-4 home-service">
             <div class="card h-100 border-0 p-2 hvr-underline-from-left">
@@ -16,12 +16,12 @@ const ManageInventory = ({ manageInvento }) => {
                             <span>{supplierName}</span>
                             <p>{description.slice(0, 110)}...</p>
                             <div>
-                            <Link to={`/inventory/${_id}`}><button className='hvr-sweep-to-right hvr-ripple-out'>
-                                Update
-                            </button></Link>
+                                <Link to={`/inventorys/${_id}`}><button className='hvr-sweep-to-right hvr-ripple-out'>
+                                    Update
+                                </button></Link>
+                            </div>
                         </div>
-                        </div>
-                        
+
                     </div>
                 </div>
             </div>

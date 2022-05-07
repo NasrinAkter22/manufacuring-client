@@ -1,5 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Pages/Home/Home/Home';
 import Blog from './Pages/Blog/Blog';
 import NotFound from './Pages/NotFound/NotFound';
@@ -17,21 +19,21 @@ function App() {
   return (
     <div>
       <AuthProvider>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='home' element={<Home />} />
-        <Route path='blog' element={<Blog />} />
-        <Route path='login' element={<Login />} />
-        <Route path='reg' element={<Reg />} />
-        <Route path='manage-item' element={<ManageItem />} />
-        <Route path='add-item' element={<AddItem />} />
-        <Route path='my-item' element={<MyItems />} />
-        <Route path='manage-inventories' element={<ManageInventorys />} />
-        <Route path='/inventory/:inventoryId' element={<PrivateRoute>
-          <Inventory />
-        </PrivateRoute>} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='home' element={<Home />} />
+          <Route path='blog' element={<Blog />} />
+          <Route path='login' element={<Login />} />
+          <Route path='reg' element={<Reg />} />
+          <Route path='manage-item' element={<ManageItem />} />
+          <Route path='add-item' element={<AddItem />} />
+          <Route path='my-item' element={<MyItems />} />
+          <Route path='manage-inventories' element={<ManageInventorys />} />
+          <Route path='/inventorys/:id' element={<PrivateRoute>
+            <Inventory />
+          </PrivateRoute>} />
           <Route path='*' element={<NotFound />} />
-      </Routes>
+        </Routes>
       </AuthProvider>
     </div>
   );

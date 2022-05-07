@@ -1,4 +1,8 @@
 import React from 'react';
+import banner1 from "../../../images/banner1.png"
+import banner2 from "../../../images/banner2.png"
+import banner3 from "../../../images/banner3.png"
+
 
 const Banner = () => {
     return (
@@ -6,13 +10,13 @@ const Banner = () => {
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img className='img-fluid' src='https://images.unsplash.com/photo-1506765515384-028b60a970df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80' class="d-block w-100" alt="..." />
+                        <img className='img-fluid' src={banner1} class="d-block w-100" alt="..." />
                     </div>
                     <div class="carousel-item">
-                        <img className='img-fluid' src='https://images.unsplash.com/photo-1506765515384-028b60a970df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80' class="d-block w-100" alt="..." />
+                        <img className='img-fluid' src={banner2} class="d-block w-100" alt="..." />
                     </div>
                     <div class="carousel-item">
-                        <img className='img-fluid' src='https://images.unsplash.com/photo-1506765515384-028b60a970df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80' class="d-block w-100" alt="..." />
+                        <img className='img-fluid' src={banner3} class="d-block w-100" alt="..." />
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

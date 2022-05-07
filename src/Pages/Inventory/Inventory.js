@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
 // import { useForm } from 'react-hook-form';
@@ -7,12 +7,12 @@ import Navbar from '../Shared/Navbar/Navbar';
 // import useFirebase from '../../Hooks/useFirebase';
 
 const Inventory = () => {
-    const [invent, setInvent] = useState({});
+    const [invent, setInvent] = useState({ quantity: '' });
     // const { user } = useFirebase();
-    const { inventoryId } = useParams();
+    const { id } = useParams();
     // const { register, handleSubmit, reset } = useForm();
     useEffect(() => {
-        fetch(`http://localhost:5000/inventorys/${inventoryId}`)
+        fetch(`http://localhost:5000/inventorys/${id}`)
             .then(res => res.json())
             .then(data => setInvent(data))
     }, [])
@@ -26,6 +26,60 @@ const Inventory = () => {
     //             }
     //         })
     // }
+
+
+    {/*  delivred sight */ }
+
+    const number = parseInt(invent.quantity);
+    const { quantity, ...rest } = invent;
+    const deliveredHandle = (event) => {
+        event.preventDefault();
+
+        const newNumber = number - 1;
+        const invent = {
+            quantity: newNumber
+
+        }
+        const url = `http://localhost:5000/inventorys/${id}`
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(invent)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                setInvent({ quantity: newNumber, ...rest });
+            })
+
+    }
+    {/*  delivered end  */ }
+
+    const numberOne = parseInt(invent.quantity);
+    const numberRef = useRef('');
+    const handleStock = event => {
+        event.preventDefault();
+        const stocknumber = numberRef.current.value;
+        const quantity = parseInt(stocknumber) + numberOne;
+        const invent = { quantity };
+        const url = `http://localhost:5000/inventorys/${id}`
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(invent)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                setInvent({ quantity: quantity, ...rest });
+                event.target.reset('')
+            })
+    }
+
     return (
         <div>
             <Navbar />
@@ -41,6 +95,11 @@ const Inventory = () => {
                         <h6 className='mt-4'>Supplier Name is <span className='text-primary'>{invent.supplierName}</span></h6>
                         <h5>Description: </h5>
                         <p className='mt-4'>{invent.description}</p>
+                        <button onClick={deliveredHandle} className='btn btn-danger'>Delivered</button>
+                        <form action="" className='mt-3' onSubmit={handleStock}>
+                            <input className='mb-3 p-2' type="number" ref={numberRef} name="qunatity" placeholder='stock number' id="" /> <br />
+                            <input className='btn btn-danger' type="submit" value="stocked" />
+                        </form>
                     </div>
                 </div>
             </div>
