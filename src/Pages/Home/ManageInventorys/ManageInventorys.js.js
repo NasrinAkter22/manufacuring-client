@@ -14,21 +14,22 @@ const ManageInventorys = () => {
         <div>
             <Navbar />
             {manageInv.length === 0 ?
-                <div class="d-flex justify-content-center mt-5 mb-5">
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                <div className="d-flex justify-content-center mt-5 mb-5">
+                    <div className="spinner-border" role="status">
+                        <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>
                 :
 
-                <div class="row mt-5 mb-5 width-control g-3">
+                <div className="row mt-5 mb-5 width-control g-3">
                     {
                         manageInv.map(manageInvento => <ManageInventory
+                        key={manageInvento._id}
                             manageInvento={manageInvento}
                         ></ManageInventory>)
                     }
                 </div>}
-                <Footer />
+            <Footer />
         </div>
     );
 };

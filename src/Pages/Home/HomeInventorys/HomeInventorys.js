@@ -12,16 +12,16 @@ const HomeInventorys = () => {
     return (
         <div>
             {inventorys.length === 0 ?
-                <div class="d-flex justify-content-center mt-5 mb-5">
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                <div className="d-flex justify-content-center mt-5 mb-5">
+                    <div className="spinner-border" role="status">
+                        <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>
                 :
 
-                <div class="row mt-5 mb-5 width-control g-3">
+                <div className="row mt-5 mb-5 width-control g-3">
                     {
-                        inventorys.map(inventory => <HomeInventory
+                        inventorys.map(inventory => <HomeInventory key={inventory._id}
                             inventory={inventory}
                         ></HomeInventory>)
                     }

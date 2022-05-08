@@ -1,28 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css'
+import ScrollToTop from "react-scroll-to-top";
 // import footerImg from '../../../images/footer/footer.png'
 
 const Footer = () => {
     return (
         <div className='main-footer'>
+            <ScrollToTop smooth />
             <div className='row width-control mt-5 sub-footer'>
                 <div className='col-sm-12 col-md-6 col-lg-4'>
                     <h5>Need help</h5>
                     <h4>88923 091 - laptophouse - 000</h4>
                     <p>Monday – Friday: 9:00-20:00</p>
                     <p>Saturday: 11:00 – 15:00</p>
-                    <button className='email-btn'><i class="far fa-envelope"></i> laptop@house.com</button>
+                    <button className='email-btn'><i className="far fa-envelope"></i> laptop@house.com</button>
                 </div>
                 <div className='col-sm-12 col-md-6 col-lg-4'>
                     <p>1487 Rocky Horse Carrefour <br />Arlington, TX 16819</p>
                     <a className='show-map' href="">Show on map</a>
                     <div className='mt-3'>
-                    <i class="fab fa-linkedin me-3 fs-4"></i>
-                    <i class="fab fa-twitter-square me-3 fs-4"></i>
-                    <i class="fab fa-facebook-square me-3 fs-4"></i>
-                    <i class="fab fa-youtube-square me-3 fs-4"></i>
-                    <i class="fab fa-instagram-square fs-4"></i>
+                        <i className="fab fa-linkedin me-3 fs-4"></i>
+                        <i className="fab fa-twitter-square me-3 fs-4"></i>
+                        <i className="fab fa-facebook-square me-3 fs-4"></i>
+                        <i className="fab fa-youtube-square me-3 fs-4"></i>
+                        <i className="fab fa-instagram-square fs-4"></i>
                     </div>
                 </div>
                 <div className='col-sm-12 col-md-6 col-lg-4'>

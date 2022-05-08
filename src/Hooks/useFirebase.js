@@ -86,7 +86,7 @@ const useFirebase = () => {
     // save user
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('http://localhost:5000/inventorys', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -98,7 +98,7 @@ const useFirebase = () => {
 
     // make admin ui
     useEffect( () => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`http://localhost:5000/inventorys/${user.email}`)
         .then(res => res.json())
         .then(data => setAdmin(data.admin))
     }, [user.email])

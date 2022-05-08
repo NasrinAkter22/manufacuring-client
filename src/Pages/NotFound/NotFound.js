@@ -6,9 +6,9 @@ const NotFound = () => {
     return (
         <div>
             <div className="not-found">
-            <i class="fa-solid fa-face-sad-tear not-found-icon"></i>
-            <h3 className='mt-4'>Opps!! Page not found</h3>
-            <Link to="/home"><button>Back Home</button></Link>
+                <i className="fa-solid fa-face-sad-tear not-found-icon"></i>
+                <h3 className='mt-4'>Opps!! Page not found</h3>
+                <Link to="/home"><button>Back Home</button></Link>
             </div>
         </div>
     );
