@@ -97,10 +97,10 @@ const useFirebase = () => {
     }
 
     // make admin ui
-    useEffect( () => {
+    useEffect(() => {
         fetch(`http://localhost:5000/inventorys/${user.email}`)
-        .then(res => res.json())
-        .then(data => setAdmin(data.admin))
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
     }, [user.email])
 
     // logout

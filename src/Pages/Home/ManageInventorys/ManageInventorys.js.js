@@ -24,7 +24,7 @@ const ManageInventorys = () => {
                 <div className="row mt-5 mb-5 width-control g-3">
                     {
                         manageInv.map(manageInvento => <ManageInventory
-                        key={manageInvento._id}
+                            key={manageInvento._id}
                             manageInvento={manageInvento}
                         ></ManageInventory>)
                     }

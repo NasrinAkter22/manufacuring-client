@@ -98,10 +98,10 @@ const AddItem = () => {
           </div>
         </section>
 
-          
+
       </div>
-      <Footer/> 
-      <ToastContainer/>
+      <Footer />
+      <ToastContainer />
     </Fragment>
   );
 };

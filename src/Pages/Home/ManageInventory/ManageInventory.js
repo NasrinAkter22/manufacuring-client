@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ManageInventory = ({ manageInvento }) => {
     const { _id, name, price, quantity, supplierName, description, imgURL } = manageInvento;
+    
     return (
         <div className="col-sm-12 col-md-6 col-lg-4 home-service">
             <div className="card h-100 border-0 p-2 hvr-underline-from-left">

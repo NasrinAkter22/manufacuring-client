@@ -1,5 +1,6 @@
 import React from 'react';
 import About from '../../About/About';
+import Review from '../../Review/Review';
 import Footer from '../../Shared/Footer/Footer';
 import Navbar from '../../Shared/Navbar/Navbar';
 import Banner from '../Banner/Banner';
@@ -12,6 +13,8 @@ const Home = () => {
             <Banner />
             <Inventorys />
             <About></About>
+            <Review></Review>
+            
             
             <Footer />
         </div>
