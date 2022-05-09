@@ -12,13 +12,13 @@ const Inventory = () => {
     const { id } = useParams();
     // const { register, handleSubmit, reset } = useForm();
     useEffect(() => {
-        fetch(`http://localhost:5000/inventorys/${id}`)
+        fetch(`https://laptop12345.herokuapp.com/inventorys/${id}`)
             .then(res => res.json())
             .then(data => setInvent(data))
     }, [])
 
     // const onSubmit = data => {
-    //     axios.post('http://localhost:5000/bookings', data)
+    //     axios.post('https://laptop12345.herokuapp.com/bookings', data)
     //         .then(res => {
     //             if (res.data.insertedId) {
     //                 alert('booking added successfully');
@@ -40,7 +40,7 @@ const Inventory = () => {
             quantity: newNumber
 
         }
-        const url = `http://localhost:5000/inventorys/${id}`
+        const url = `https://laptop12345.herokuapp.com/inventorys/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -64,7 +64,7 @@ const Inventory = () => {
         const stocknumber = numberRef.current.value;
         const quantity = parseInt(stocknumber) + numberOne;
         const invent = { quantity };
-        const url = `http://localhost:5000/inventorys/${id}`
+        const url = `https://laptop12345.herokuapp.com/inventorys/${id}`
         fetch(url, {
             method: "PUT",
             headers: {

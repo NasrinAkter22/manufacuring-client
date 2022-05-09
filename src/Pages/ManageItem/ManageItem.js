@@ -9,14 +9,14 @@ import ManageSingleItem from './ManageSingleItem/ManageSingleItem';
 const ManageItem = () => {
     const [manageInv, setManageInv] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventorys')
+        fetch('https://laptop12345.herokuapp.com/inventorys')
             .then(res => res.json())
             .then(data => setManageInv(data))
     }, [])
     const DeleteItem = (id) => {
         const confirmation = window.confirm('Are you want to delete this Item')
         if (confirmation) {
-            fetch(`http://localhost:5000/inventory/${id}`, {
+            fetch(`https://laptop12345.herokuapp.com/inventorys/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

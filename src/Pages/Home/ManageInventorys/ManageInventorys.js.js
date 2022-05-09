@@ -6,7 +6,7 @@ import ManageInventory from '../ManageInventory/ManageInventory';
 const ManageInventorys = () => {
     const [manageInv, setManageInv] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventorys')
+        fetch('https://laptop12345.herokuapp.com/inventorys')
             .then(res => res.json())
             .then(data => setManageInv(data))
     }, [])
