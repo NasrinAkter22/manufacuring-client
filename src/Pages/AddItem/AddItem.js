@@ -17,7 +17,7 @@ const AddItem = () => {
     const email = event.target.email.value;
     const user = { name, supplierName, imgURL, quantity, price, description, email };
 
-    fetch('https://laptop12345.herokuapp.com/inventorys', {
+    fetch('http://localhost:5000/inventorys', {
       method: 'post',
       headers: {
         'content-type': 'application/json',

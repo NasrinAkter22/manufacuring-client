@@ -6,11 +6,9 @@ import Navbar from '../../Shared/Navbar/Navbar';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUsingGoogle, error, loginAuth } = useFirebase();
-    // console.log(user.email);
+    const { loginUsingGoogle, error, loginAuth } = useFirebase();
     const location = useLocation();
     const navigate = useNavigate();
-    // console.log(user)
     const handleOnBlur = (e) => {
         const field = e.target.name;
         const value = e.target.value;

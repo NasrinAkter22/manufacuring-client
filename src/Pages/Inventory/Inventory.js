@@ -1,82 +1,61 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
-// import { useForm } from 'react-hook-form';
-// import axios from 'axios';
 import Navbar from '../Shared/Navbar/Navbar';
-// import useFirebase from '../../Hooks/useFirebase';
 
 const Inventory = () => {
-    const [invent, setInvent] = useState({ quantity: '' });
-    // const { user } = useFirebase();
     const { id } = useParams();
-    // const { register, handleSubmit, reset } = useForm();
+    const [invent, setInvent] = useState({});
+    const [reload, setIsLoad] = useState(true);
+
     useEffect(() => {
-        fetch(`https://laptop12345.herokuapp.com/inventorys/${id}`)
+        fetch(`http://localhost:5000/inventorys/${id}`)
             .then(res => res.json())
             .then(data => setInvent(data))
-    }, [])
-
-    // const onSubmit = data => {
-    //     axios.post('https://laptop12345.herokuapp.com/bookings', data)
-    //         .then(res => {
-    //             if (res.data.insertedId) {
-    //                 alert('booking added successfully');
-    //                 reset();
-    //             }
-    //         })
-    // }
+    }, [id, reload])
 
 
-    {/*  delivred sight */ }
 
-    const number = parseInt(invent.quantity);
-    const { quantity, ...rest } = invent;
     const deliveredHandle = (event) => {
         event.preventDefault();
+        const number = parseInt(invent.quantity)
+        const quantity = (number > 0) ? number - 1 : number;
+        const newInvent = { quantity };
 
-        const newNumber = number - 1;
-        const invent = {
-            quantity: newNumber
-
-        }
-        const url = `https://laptop12345.herokuapp.com/inventorys/${id}`
+        const url = `http://localhost:5000/inventorys/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(invent)
+            body: JSON.stringify(newInvent)
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success', data);
-                setInvent({ quantity: newNumber, ...rest });
+                setIsLoad(!reload)
             })
 
     }
-    {/*  delivered end  */ }
-
-    const numberOne = parseInt(invent.quantity);
     const numberRef = useRef('');
     const handleStock = event => {
         event.preventDefault();
         const stocknumber = numberRef.current.value;
-        const quantity = parseInt(stocknumber) + numberOne;
-        const invent = { quantity };
-        const url = `https://laptop12345.herokuapp.com/inventorys/${id}`
+        const quantity = parseInt(stocknumber) + parseInt(invent.quantity);
+        const newInvent = { quantity };
+
+        const url = `http://localhost:5000/inventorys/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(invent)
+            body: JSON.stringify(newInvent)
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success', data);
-                setInvent({ quantity: quantity, ...rest });
-                event.target.reset('')
+                event.target.reset();
+                setIsLoad(!reload)
+
             })
     }
 
