@@ -7,9 +7,8 @@ const Inventory = () => {
     const { id } = useParams();
     const [invent, setInvent] = useState({});
     const [reload, setIsLoad] = useState(true);
-
     useEffect(() => {
-        fetch(`http://localhost:5000/inventorys/${id}`)
+        fetch(`https://sheltered-hollows-57832.herokuapp.com/inventorys/${id}`)
             .then(res => res.json())
             .then(data => setInvent(data))
     }, [id, reload])
@@ -22,7 +21,7 @@ const Inventory = () => {
         const quantity = (number > 0) ? number - 1 : number;
         const newInvent = { quantity };
 
-        const url = `http://localhost:5000/inventorys/${id}`
+        const url = `https://sheltered-hollows-57832.herokuapp.com/inventorys/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -43,7 +42,7 @@ const Inventory = () => {
         const quantity = parseInt(stocknumber) + parseInt(invent.quantity);
         const newInvent = { quantity };
 
-        const url = `http://localhost:5000/inventorys/${id}`
+        const url = `https://sheltered-hollows-57832.herokuapp.com/inventorys/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
