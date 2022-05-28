@@ -6,7 +6,7 @@ import ManageInventory from '../ManageInventory/ManageInventory';
 const ManageInventorys = () => {
     const [manageInv, setManageInv] = useState([]);
     useEffect(() => {
-        fetch('https://sheltered-hollows-57832.herokuapp.com/inventorys')
+        fetch('http://localhost:5000/inventorys')
             .then(res => res.json())
             .then(data => setManageInv(data))
     }, [])
@@ -26,7 +26,9 @@ const ManageInventorys = () => {
                         manageInv.map(manageInvento => <ManageInventory
                             key={manageInvento._id}
                             manageInvento={manageInvento}
-                        ></ManageInventory>)
+                        >
+
+                        </ManageInventory>)
                     }
                 </div>}
             <Footer />

@@ -16,6 +16,8 @@ const AddItem = () => {
     const description = event.target.description.value;
     const email = event.target.email.value;
     const user = { name, supplierName, imgURL, quantity, price, description, email };
+    console.log(user);
+
 
     fetch('https://sheltered-hollows-57832.herokuapp.com/inventorys', {
       method: 'post',
@@ -26,6 +28,7 @@ const AddItem = () => {
     })
       .then(Response => Response.json())
       .then(data => {
+        console.log(data);
         toast('Your Data Submit is sucess');
         event.target.reset()
       })
