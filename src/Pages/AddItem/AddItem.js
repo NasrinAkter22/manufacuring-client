@@ -16,10 +16,9 @@ const AddItem = () => {
     const description = event.target.description.value;
     const email = event.target.email.value;
     const user = { name, supplierName, imgURL, quantity, price, description, email };
-    console.log(user);
 
-
-    fetch('https://sheltered-hollows-57832.herokuapp.com/inventorys', {
+    console.log("end of code", user);
+    fetch(`https://intense-springs-99541.herokuapp.com/addProduct`, {
       method: 'post',
       headers: {
         'content-type': 'application/json',
@@ -28,7 +27,7 @@ const AddItem = () => {
     })
       .then(Response => Response.json())
       .then(data => {
-        console.log(data);
+        console.log('data add', data);
         toast('Your Data Submit is sucess');
         event.target.reset()
       })
@@ -36,6 +35,7 @@ const AddItem = () => {
         console.error('Error:', error);
       });
   }
+
 
   return (
 

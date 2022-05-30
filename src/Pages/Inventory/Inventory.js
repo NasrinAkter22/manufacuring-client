@@ -8,10 +8,10 @@ const Inventory = () => {
     const [invent, setInvent] = useState({});
     const [reload, setIsLoad] = useState(true);
     useEffect(() => {
-        fetch(`https://sheltered-hollows-57832.herokuapp.com/inventorys/${id}`)
+        fetch(`https://intense-springs-99541.herokuapp.com/inventorys/${id}`)
             .then(res => res.json())
             .then(data => setInvent(data))
-    }, [id, reload])
+    }, [id])
 
 
 
@@ -20,8 +20,9 @@ const Inventory = () => {
         const number = parseInt(invent.quantity)
         const quantity = (number > 0) ? number - 1 : number;
         const newInvent = { quantity };
+        console.log(newInvent);
 
-        const url = `https://sheltered-hollows-57832.herokuapp.com/inventorys/${id}`
+        const url = `https://intense-springs-99541.herokuapp.com/inventorys/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -31,6 +32,8 @@ const Inventory = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
+                window.location.reload();
                 setIsLoad(!reload)
             })
 
@@ -41,8 +44,9 @@ const Inventory = () => {
         const stocknumber = numberRef.current.value;
         const quantity = parseInt(stocknumber) + parseInt(invent.quantity);
         const newInvent = { quantity };
+        console.log(newInvent);
 
-        const url = `https://sheltered-hollows-57832.herokuapp.com/inventorys/${id}`
+        const url = `https://intense-springs-99541.herokuapp.com/inventorys/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -52,7 +56,9 @@ const Inventory = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 event.target.reset();
+                window.location.reload();
                 setIsLoad(!reload)
 
             })

@@ -6,9 +6,9 @@ import ManageInventory from '../ManageInventory/ManageInventory';
 const ManageInventorys = () => {
     const [manageInv, setManageInv] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventorys')
+        fetch(`https://intense-springs-99541.herokuapp.com/inventorys`)
             .then(res => res.json())
-            .then(data => setManageInv(data))
+            .then(data => console.log(data))
     }, [])
     return (
         <div>
@@ -22,13 +22,14 @@ const ManageInventorys = () => {
                 :
 
                 <div className="row mt-5 mb-5 width-control g-3">
-                    {
+                    {/*                     {
                         manageInv.map(manageInvento => <ManageInventory
                             key={manageInvento._id}
                             manageInvento={manageInvento}
-                        >
-
-                        </ManageInventory>)
+                        ></ManageInventory>)
+                    } */}
+                    {
+                        manageInv.map(manageInvento => console.log(manageInvento))
                     }
                 </div>}
             <Footer />

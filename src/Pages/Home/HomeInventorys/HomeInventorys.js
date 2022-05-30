@@ -5,9 +5,11 @@ import HomeInventory from '../HomeInventory/HomeInventory';
 const HomeInventorys = () => {
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
-        fetch('https://sheltered-hollows-57832.herokuapp.com/inventorys')
+        fetch(`https://intense-springs-99541.herokuapp.com/inventorys`)
             .then(res => res.json())
-            .then(data => setInventorys(data.slice(0, 6)))
+            .then(data =>
+                setInventorys(data)
+            )
     }, [])
     return (
         <div>
@@ -21,7 +23,7 @@ const HomeInventorys = () => {
 
                 <div className="row mt-5 mb-5 width-control g-3">
                     {
-                        inventorys.map(inventory => <HomeInventory key={inventory._id}
+                        inventorys.slice(0, 6).map(inventory => <HomeInventory key={inventory._id}
                             inventory={inventory}
                         ></HomeInventory>)
                     }

@@ -86,7 +86,7 @@ const useFirebase = () => {
     // save user
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000//inventorys', {
+        fetch('https://intense-springs-99541.herokuapp.com/inventorys', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -97,11 +97,11 @@ const useFirebase = () => {
     }
 
     // make admin ui
-    useEffect(() => {
-        fetch(`http://localhost:5000//inventorys/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
+    // useEffect(() => {
+    //     fetch(`https://intense-springs-99541.herokuapp.com/inventorys/${user.email}`)
+    //         .then(res => res.json())
+    //         .then(data => setAdmin(data.admin))
+    // }, [user.email])
 
     // logout
     const logOut = () => {
