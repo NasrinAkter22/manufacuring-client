@@ -27,6 +27,7 @@ const ManageItem = () => {
                         const restProducts = manageInv.filter(product => product._id !== id);
                         setManageInv(restProducts);
 
+
                     }
                     else { console.log('error') }
                 })
